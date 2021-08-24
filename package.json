@@ -23,7 +23,7 @@
   "dependencies": {
     "@material-ui/core": "4.12.1",
     "@material-ui/icons": "4.11.2",
-    "@material-ui/lab": "^4.0.0-alpha.57",
+    "@material-ui/lab": "4.0.0-alpha.57",
     "@material-ui/styles": "4.11.2",
     "@svgr/webpack": "^4.3.3",
     "clsx": "^1.0.4",
@@ -39,6 +39,8 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-storefront": "^8.17.4",
+    "react-storefront-amp": "^1.2.9",
+    "react-storefront-analytics": "^1.1.2",
     "react-storefront-magento2-connector": "1.0.2",
     "react-visibility-sensor": "^5.1.1"
   },

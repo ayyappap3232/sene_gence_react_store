@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useRef } from 'react'
+import React, { useContext, useState, useEffect, useRef ,memo} from 'react'
 import clsx from 'clsx'
 import qs from 'qs'
 import useLazyState from 'react-storefront/hooks/useLazyState'
@@ -104,6 +104,7 @@ const Product = React.memo(lazyProps => {
   // Adds an item to the cart
   const handleSubmit = async event => {
     event.preventDefault() // prevent the page location from changing
+    event.stopPropagation()
     setAddToCartInProgress(true) // disable the add to cart button until the request is finished
 
     try {
@@ -286,4 +287,4 @@ const Product = React.memo(lazyProps => {
 
 Product.getInitialProps = createLazyProps(fetchFromAPI)
 
-export default Product
+export default memo(Product)

@@ -86,7 +86,7 @@ export default function AddToCartConfirmation({
             />
           </div>
           <div className={classes.info}>
-            <Typography className={classes.name}>{product.name}</Typography>
+            <Typography className={classes.name}>{product?.name}</Typography>
             <Typography>{color.text ? `Color: ${color.text}` : ''}</Typography>
             <Typography>{size.text ? `Size: ${size.text}` : ''}</Typography>
             <Typography>{quantity ? `Qty: ${quantity}` : ''}</Typography>

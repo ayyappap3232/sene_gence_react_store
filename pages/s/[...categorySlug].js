@@ -19,6 +19,7 @@ import SortButton from 'react-storefront/plp/SortButton'
 import Fill from 'react-storefront/Fill'
 import fetchFromAPI from 'react-storefront/props/fetchFromAPI'
 import createLazyProps from 'react-storefront/props/createLazyProps'
+import LandingCmsSlots from '../../components/LandingCmsSlots'
 
 const useStyles = makeStyles(theme => ({
   sideBar: {

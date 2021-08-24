@@ -67,14 +67,14 @@ export default function Cart(props) {
     <Container className={classes.root}>
       <Row>
         <Typography variant="h6">
-          My Cart ({items.length} {items.length === 1 ? 'item' : 'items'})
+          My Cart ({items?.length} {items?.length === 1 ? 'item' : 'items'})
         </Typography>
       </Row>
       <Row>
         <Grid container spacing={4}>
           <Grid item xs={12} sm={8}>
-            {items.length ? (
-              items.map((product, i) => (
+            {items?.length ? (
+              items?.map((product, i) => (
                 <CartItem
                   key={product.id}
                   updateQuantity={handleUpdateQuantity}
@@ -86,7 +86,7 @@ export default function Cart(props) {
               <Typography variant="body1">There are no items in your cart.</Typography>
             )}
           </Grid>
-          {items.length === 0 ? null : (
+          {items?.length === 0 ? null : (
             <Grid item xs={12} sm={4}>
               <div className={classes.checkoutPanel}>
                 <Hbox alignItems="flex-start">
@@ -98,10 +98,10 @@ export default function Cart(props) {
                   </div>
                   <Spacer />
                   <Typography variant="subtitle2" className={classes.total}>
-                    {price(
-                      items.reduce((a, b) => a + b.quantity * parseFloat(b.price), 0),
+                    {items?.length > 0 ? price(
+                      items?.reduce((a, b) => a + b.quantity * parseFloat(b.price), 0),
                       { currency: get(session, 'currency') }
-                    )}
+                    ) : price(0,{ currency: get(session, 'currency') })}
                   </Typography>
                 </Hbox>
                 <Hidden xsDown implementation="css">
@@ -109,11 +109,12 @@ export default function Cart(props) {
                     <Divider />
                   </Row>
                 </Hidden>
-                {items.length === 0 ? null : (
+                {items?.length === 0 ? null : (
                   <Link href="/checkout">
                     <Button
                       color="primary"
                       variant="contained"
+                      disabled={items?.length === 0}
                       className={clsx(classes.checkoutButton, classes.docked)}
                     >
                       Checkout
