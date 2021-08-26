@@ -41,7 +41,7 @@ const Loader = React.memo(({ active }) => {
   )
 })
 
-export default function LoginForm() {
+const LoginForm = (lazyPorps) => {
   const classes = useStyles()
 
   const { actions, session } = useContext(SessionContext)
@@ -102,9 +102,8 @@ export default function LoginForm() {
   }
 
   return (
-    <>
       <Container className={classes.root}>
-        <Loader active={loading} />
+        {/* <Loader active={loading} /> */}
         {!signedIn ? (
           <>
             <div className={classes.spacingBlock}>
@@ -191,6 +190,7 @@ export default function LoginForm() {
           </>
         )}
       </Container>
-    </>
   )
 }
+
+export default LoginForm

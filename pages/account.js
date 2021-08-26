@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {memo} from 'react'
 import { Container, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 import useLazyState from 'react-storefront/hooks/useLazyState'
@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default function Index(lazyProps) {
+const Index = (lazyProps) => {
   const classes = useStyles()
   const [state] = useLazyState(lazyProps)
 
@@ -47,4 +47,5 @@ export default function Index(lazyProps) {
 
 Index.getInitialProps = createLazyProps(fetchFromAPI)
 
-export const config = { amp: 'hybrid' }
+
+export default memo(Index);
